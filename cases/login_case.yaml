@@ -1,0 +1,99 @@
+-
+  case_id: login_001
+  title: 正确账号密码登录成功
+  method: POST
+  path: /api/login
+  json:
+    username: admin
+    password: "123456"
+  expect_http: 200
+  expect_code: 200
+  expect_msg: success
+  expect_fields:
+    - data.token
+  smoke: true
+
+-
+  case_id: login_002
+  title: 用户名为空
+  method: POST
+  path: /api/login
+  json:
+    username: ""
+    password: "123456"
+  expect_http: 200
+  expect_code: 400
+  expect_msg: 用户名不能为空
+
+-
+  case_id: login_003
+  title: 密码为空
+  method: POST
+  path: /api/login
+  json:
+    username: admin
+    password: ""
+  expect_http: 200
+  expect_code: 400
+  expect_msg: 密码不能为空
+
+-
+  case_id: login_004
+  title: 缺少username字段
+  method: POST
+  path: /api/login
+  json:
+    password: "123456"
+  expect_http: 422
+  expect_code: null
+
+-
+  case_id: login_005
+  title: 密码长度等于20边界内合法
+  method: POST
+  path: /api/login
+  json:
+    username: admin
+    password: "12345678901234567890"
+  expect_http: 200
+  expect_code: 400
+  expect_msg: 账号或密码错误
+
+-
+  case_id: login_006
+  title: 密码长度21超过边界
+  method: POST
+  path: /api/login
+  json:
+    username: admin
+    password: "123456789012345678901"
+  expect_http: 200
+  expect_code: 400
+  expect_msg: 密码长度过长，最大为20
+
+-
+  case_id: login_007
+  title: 账号不存在
+  method: POST
+  path: /api/login
+  json:
+    username: not_exist_user
+    password: "123456"
+  expect_http: 200
+  expect_code: 400
+  expect_msg: 账号或密码错误
+
+-
+  case_id: login_008
+  title: 密码错误
+  method: POST
+  path: /api/login
+  json:
+    username: admin
+    password: "wrong_pwd"
+  expect_http: 200
+  expect_code: 400
+  expect_msg: 账号或密码错误
+
+
+
