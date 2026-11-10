@@ -81,11 +81,22 @@ pytest -m smoke -v
 ## 报告截图
 docs/allure_report.png
 
+
+## CI 持续集成
+
+项目配置了 GitHub Actions，每次 push 到 `main` 或提交 Pull Request 自动触发：
+1. 拉取代码，安装 Python 3.10 和项目依赖
+2. 后台启动 FastAPI Mock 后端，健康检查通过后执行
+3. 运行 `pytest -m smoke` 冒烟用例
+4. 上传 Allure 原始结果作为 artifact（即使测试失败也可下载）
+
 ## 项目局限
 本框架只做接口功能校验，不替代探索性测试；自动化无法覆盖 UI 体验类问题。
 
 频繁改动的业务接口维护成本高，不适合自动化。
 
 重试机制能过滤网络抖动，但可能掩盖真实的间歇性 Bug，需配合日志排查。
+
+
 
 
