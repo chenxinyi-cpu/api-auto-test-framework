@@ -1,0 +1,35 @@
+-
+  case_id: get_user_001
+  title: 查询存在的用户
+  method: GET
+  path: /api/user/1
+  expect_http: 200
+  expect_code: 200
+  expect_msg: success
+  smoke: true
+
+-
+  case_id: get_user_002
+  title: 查询另一个存在的用户
+  method: GET
+  path: /api/user/2
+  expect_http: 200
+  expect_code: 200
+  expect_msg: success
+  smoke: true
+
+-
+  case_id: get_user_003
+  title: 查询不存在的用户
+  method: GET
+  path: /api/user/999
+  expect_http: 404
+  expect_code: null
+
+-
+  case_id: get_user_004
+  title: 路径参数为非法类型
+  method: GET
+  path: /api/user/abc
+  expect_http: 422
+  expect_code: null
