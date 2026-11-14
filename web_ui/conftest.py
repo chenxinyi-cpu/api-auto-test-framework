@@ -25,5 +25,5 @@ def pytest_runtest_makereport(item,call):
             screenshot_path = os.path.join(report_dir, f"fail_{item.name}.png")
 
             # 3. 传入 path 参数截图
-            page.screenshot(path=screenshot_path)
+            page.screenshot(path=screenshot_path,full_page=True)
             print(f"\n[失败自动截图已保存]: {screenshot_path}")
