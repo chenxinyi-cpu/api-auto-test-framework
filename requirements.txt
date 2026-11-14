@@ -6,3 +6,4 @@ allure-pytest>=2.13.0
 fastapi[standard]==0.162.0
 locust==2.46.0
 responses==0.26.3
+pytest-playwright>=0.5.0

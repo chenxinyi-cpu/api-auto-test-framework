@@ -40,4 +40,3 @@ class LoginUser(HttpUser):
             headers={"Authorization":f"Bearer {self.token}"},
             name="get_user_with_token",
         )
-
