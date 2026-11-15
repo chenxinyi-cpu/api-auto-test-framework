@@ -7,7 +7,7 @@
     username: admin
     password: "123456"
   expect_http: 200
-  expect_code: 000
+  expect_code: 200
   expect_msg: success
   expect_fields:
     - data.token
