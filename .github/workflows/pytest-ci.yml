@@ -89,7 +89,7 @@ jobs:
       - name: Run UI tests
         run: |
           pytest -m ui -v \
-            --tracing on \
+            --tracing retain-on-failure \
             --alluredir=reports/allure-results-ui
 
       - name: Upload UI traces
