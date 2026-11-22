@@ -11,3 +11,4 @@ logs/
 .DS_Store
 .git/
 test-results/
+data/
